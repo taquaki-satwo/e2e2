@@ -1,0 +1,36 @@
+extends layout
+block content
+  .row
+    .col.m3
+      form(method="post" action="./search/confirm")
+        fieldset
+          legend 商品検索条件登録
+          .row
+            .col.m12
+              label(for="sex") 性別
+              select._width100(name="sex")
+                option(value="") 未選択
+                option(value="men") men
+                option(value="women" selected) women
+                option(value="kids") kids
+            .col.m12
+              label(for="p_tycname") 大カテゴリ
+              input._full-width(type="text" name="p_tycname" value="tops")
+            .col.m12
+              label(for="p_tyname") 小カテゴリ
+              input(type="text" name="p_tyname" value="parka")
+            .col.m12
+              label(for="dord") ソート順
+              select(name="dord")
+                option(value="21") 新着順
+                option(value="31") 価格が高い順
+                option(value="32") 価格が安い順
+            .col.m12
+              label(for="p_stype")
+                input(type="checkbox" name="p_stype" value="1" checked style="margin-right:.25em")
+                span.-label-body 在庫あり
+              label(for="wrapping")
+                input(type="checkbox" name="wrapping" value="1" checked style="margin-right:.25em")
+                span.-label-body ギフトラッピング
+            input._primary.button(type="submit" value="登録" style="margin-right:.25em")
+            input.button(type="reset" value="リセット")
